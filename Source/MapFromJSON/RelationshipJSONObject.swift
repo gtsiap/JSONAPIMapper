@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-class RelationshipJSONObject {
+struct RelationshipJSONObject {
     let resourceType: String
     let jsonField: String
     let id: Int
@@ -29,7 +29,7 @@ class RelationshipJSONObject {
         self.jsonField = jsonField
     }
 
-    class func fromJSON(JSON: [String : AnyObject]) -> [RelationshipJSONObject]? {
+    static func fromJSON(JSON: [String : AnyObject]) -> [RelationshipJSONObject]? {
 
         var objects = [RelationshipJSONObject]()
 
