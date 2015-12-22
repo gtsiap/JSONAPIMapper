@@ -1,5 +1,6 @@
 # JSONAPIMapper
-A mapping framework for http://jsonapi.org
+A mapping framework for [JSONAPI](http://jsonapi.org) inspired from
+[ObjectMapper](https://github.com/Hearst-DD/ObjectMapper)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 

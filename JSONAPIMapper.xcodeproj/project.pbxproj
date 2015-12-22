@@ -7,9 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4510CCDF1C293AF400C77B44 /* JSONAPIMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4510CCDD1C293AF400C77B44 /* JSONAPIMapper.h */; };
-		4510CCF61C293C0E00C77B44 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CCF51C293C0E00C77B44 /* Tests.swift */; };
+		4510CCDF1C293AF400C77B44 /* JSONAPIMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4510CCDD1C293AF400C77B44 /* JSONAPIMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4510CCF81C293C0E00C77B44 /* JSONAPIMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4510CCD01C293A8500C77B44 /* JSONAPIMapper.framework */; };
+		4510CD0F1C293E3800C77B44 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CCFF1C293E3800C77B44 /* Map.swift */; };
+		4510CD101C293E3800C77B44 /* MapFromJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD011C293E3800C77B44 /* MapFromJson.swift */; };
+		4510CD111C293E3800C77B44 /* ObjectMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD021C293E3800C77B44 /* ObjectMap.swift */; };
+		4510CD121C293E3800C77B44 /* RelationshipJSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD031C293E3800C77B44 /* RelationshipJSONObject.swift */; };
+		4510CD131C293E3800C77B44 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD041C293E3800C77B44 /* Mappable.swift */; };
+		4510CD141C293E3800C77B44 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD051C293E3800C77B44 /* Mapper.swift */; };
+		4510CD151C293E3800C77B44 /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD061C293E3800C77B44 /* MappingError.swift */; };
+		4510CD161C293E3800C77B44 /* CreateResourceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD081C293E3800C77B44 /* CreateResourceMap.swift */; };
+		4510CD171C293E3800C77B44 /* UpdateRelationshipMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD091C293E3800C77B44 /* UpdateRelationshipMap.swift */; };
+		4510CD181C293E3800C77B44 /* UpdateResourceMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD0A1C293E3800C77B44 /* UpdateResourceMap.swift */; };
+		4510CD191C293E3800C77B44 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD0B1C293E3800C77B44 /* Operators.swift */; };
+		4510CD1A1C293E3800C77B44 /* ObjectTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD0D1C293E3800C77B44 /* ObjectTransformer.swift */; };
+		4510CD1B1C293E3800C77B44 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD0E1C293E3800C77B44 /* Transformer.swift */; };
+		4510CD291C293F3700C77B44 /* Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD1D1C293F3700C77B44 /* Decode.swift */; };
+		4510CD2A1C293F3700C77B44 /* Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD1E1C293F3700C77B44 /* Encode.swift */; };
+		4510CD2C1C293F3700C77B44 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD211C293F3700C77B44 /* Comment.swift */; };
+		4510CD2D1C293F3700C77B44 /* Hobby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD221C293F3700C77B44 /* Hobby.swift */; };
+		4510CD2E1C293F3700C77B44 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD231C293F3700C77B44 /* Person.swift */; };
+		4510CD2F1C293F3700C77B44 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD241C293F3700C77B44 /* Post.swift */; };
+		4510CD391C29424500C77B44 /* create_resource.json in Resources */ = {isa = PBXBuildFile; fileRef = 4510CD341C29424500C77B44 /* create_resource.json */; };
+		4510CD3A1C29424500C77B44 /* parse_resource.json in Resources */ = {isa = PBXBuildFile; fileRef = 4510CD351C29424500C77B44 /* parse_resource.json */; };
+		4510CD3B1C29424500C77B44 /* update_relationship.json in Resources */ = {isa = PBXBuildFile; fileRef = 4510CD361C29424500C77B44 /* update_relationship.json */; };
+		4510CD3C1C29424500C77B44 /* update_relationship2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4510CD371C29424500C77B44 /* update_relationship2.json */; };
+		4510CD3D1C29424500C77B44 /* update_resource.json in Resources */ = {isa = PBXBuildFile; fileRef = 4510CD381C29424500C77B44 /* update_resource.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +50,31 @@
 		4510CCDC1C293AF400C77B44 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4510CCDD1C293AF400C77B44 /* JSONAPIMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPIMapper.h; sourceTree = "<group>"; };
 		4510CCF31C293C0E00C77B44 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4510CCF51C293C0E00C77B44 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		4510CCF71C293C0E00C77B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4510CCFF1C293E3800C77B44 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		4510CD011C293E3800C77B44 /* MapFromJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFromJson.swift; sourceTree = "<group>"; };
+		4510CD021C293E3800C77B44 /* ObjectMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMap.swift; sourceTree = "<group>"; };
+		4510CD031C293E3800C77B44 /* RelationshipJSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipJSONObject.swift; sourceTree = "<group>"; };
+		4510CD041C293E3800C77B44 /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
+		4510CD051C293E3800C77B44 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		4510CD061C293E3800C77B44 /* MappingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappingError.swift; sourceTree = "<group>"; };
+		4510CD081C293E3800C77B44 /* CreateResourceMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateResourceMap.swift; sourceTree = "<group>"; };
+		4510CD091C293E3800C77B44 /* UpdateRelationshipMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateRelationshipMap.swift; sourceTree = "<group>"; };
+		4510CD0A1C293E3800C77B44 /* UpdateResourceMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateResourceMap.swift; sourceTree = "<group>"; };
+		4510CD0B1C293E3800C77B44 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		4510CD0D1C293E3800C77B44 /* ObjectTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTransformer.swift; sourceTree = "<group>"; };
+		4510CD0E1C293E3800C77B44 /* Transformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformer.swift; sourceTree = "<group>"; };
+		4510CD1D1C293F3700C77B44 /* Decode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decode.swift; sourceTree = "<group>"; };
+		4510CD1E1C293F3700C77B44 /* Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encode.swift; sourceTree = "<group>"; };
+		4510CD211C293F3700C77B44 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		4510CD221C293F3700C77B44 /* Hobby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hobby.swift; sourceTree = "<group>"; };
+		4510CD231C293F3700C77B44 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		4510CD241C293F3700C77B44 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4510CD341C29424500C77B44 /* create_resource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = create_resource.json; sourceTree = "<group>"; };
+		4510CD351C29424500C77B44 /* parse_resource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = parse_resource.json; sourceTree = "<group>"; };
+		4510CD361C29424500C77B44 /* update_relationship.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = update_relationship.json; sourceTree = "<group>"; };
+		4510CD371C29424500C77B44 /* update_relationship2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = update_relationship2.json; sourceTree = "<group>"; };
+		4510CD381C29424500C77B44 /* update_resource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = update_resource.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +117,14 @@
 		4510CCDB1C293AF400C77B44 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4510CCFF1C293E3800C77B44 /* Map.swift */,
+				4510CD001C293E3800C77B44 /* MapFromJSON */,
+				4510CD041C293E3800C77B44 /* Mappable.swift */,
+				4510CD051C293E3800C77B44 /* Mapper.swift */,
+				4510CD061C293E3800C77B44 /* MappingError.swift */,
+				4510CD071C293E3800C77B44 /* MapToJSON */,
+				4510CD0B1C293E3800C77B44 /* Operators.swift */,
+				4510CD0C1C293E3800C77B44 /* Transformers */,
 				4510CCDC1C293AF400C77B44 /* Info.plist */,
 				4510CCDD1C293AF400C77B44 /* JSONAPIMapper.h */,
 			);
@@ -80,10 +134,65 @@
 		4510CCF41C293C0E00C77B44 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4510CCF51C293C0E00C77B44 /* Tests.swift */,
+				4510CD331C29424500C77B44 /* data */,
+				4510CD1D1C293F3700C77B44 /* Decode.swift */,
+				4510CD1E1C293F3700C77B44 /* Encode.swift */,
+				4510CD201C293F3700C77B44 /* Models */,
 				4510CCF71C293C0E00C77B44 /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		4510CD001C293E3800C77B44 /* MapFromJSON */ = {
+			isa = PBXGroup;
+			children = (
+				4510CD011C293E3800C77B44 /* MapFromJson.swift */,
+				4510CD021C293E3800C77B44 /* ObjectMap.swift */,
+				4510CD031C293E3800C77B44 /* RelationshipJSONObject.swift */,
+			);
+			path = MapFromJSON;
+			sourceTree = "<group>";
+		};
+		4510CD071C293E3800C77B44 /* MapToJSON */ = {
+			isa = PBXGroup;
+			children = (
+				4510CD081C293E3800C77B44 /* CreateResourceMap.swift */,
+				4510CD091C293E3800C77B44 /* UpdateRelationshipMap.swift */,
+				4510CD0A1C293E3800C77B44 /* UpdateResourceMap.swift */,
+			);
+			path = MapToJSON;
+			sourceTree = "<group>";
+		};
+		4510CD0C1C293E3800C77B44 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				4510CD0D1C293E3800C77B44 /* ObjectTransformer.swift */,
+				4510CD0E1C293E3800C77B44 /* Transformer.swift */,
+			);
+			path = Transformers;
+			sourceTree = "<group>";
+		};
+		4510CD201C293F3700C77B44 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4510CD211C293F3700C77B44 /* Comment.swift */,
+				4510CD221C293F3700C77B44 /* Hobby.swift */,
+				4510CD231C293F3700C77B44 /* Person.swift */,
+				4510CD241C293F3700C77B44 /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4510CD331C29424500C77B44 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				4510CD341C29424500C77B44 /* create_resource.json */,
+				4510CD351C29424500C77B44 /* parse_resource.json */,
+				4510CD361C29424500C77B44 /* update_relationship.json */,
+				4510CD371C29424500C77B44 /* update_relationship2.json */,
+				4510CD381C29424500C77B44 /* update_resource.json */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +293,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4510CD3B1C29424500C77B44 /* update_relationship.json in Resources */,
+				4510CD391C29424500C77B44 /* create_resource.json in Resources */,
+				4510CD3A1C29424500C77B44 /* parse_resource.json in Resources */,
+				4510CD3D1C29424500C77B44 /* update_resource.json in Resources */,
+				4510CD3C1C29424500C77B44 /* update_relationship2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +308,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4510CD1B1C293E3800C77B44 /* Transformer.swift in Sources */,
+				4510CD111C293E3800C77B44 /* ObjectMap.swift in Sources */,
+				4510CD131C293E3800C77B44 /* Mappable.swift in Sources */,
+				4510CD101C293E3800C77B44 /* MapFromJson.swift in Sources */,
+				4510CD121C293E3800C77B44 /* RelationshipJSONObject.swift in Sources */,
+				4510CD161C293E3800C77B44 /* CreateResourceMap.swift in Sources */,
+				4510CD151C293E3800C77B44 /* MappingError.swift in Sources */,
+				4510CD191C293E3800C77B44 /* Operators.swift in Sources */,
+				4510CD141C293E3800C77B44 /* Mapper.swift in Sources */,
+				4510CD1A1C293E3800C77B44 /* ObjectTransformer.swift in Sources */,
+				4510CD181C293E3800C77B44 /* UpdateResourceMap.swift in Sources */,
+				4510CD171C293E3800C77B44 /* UpdateRelationshipMap.swift in Sources */,
+				4510CD0F1C293E3800C77B44 /* Map.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +328,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4510CCF61C293C0E00C77B44 /* Tests.swift in Sources */,
+				4510CD2E1C293F3700C77B44 /* Person.swift in Sources */,
+				4510CD2A1C293F3700C77B44 /* Encode.swift in Sources */,
+				4510CD2D1C293F3700C77B44 /* Hobby.swift in Sources */,
+				4510CD291C293F3700C77B44 /* Decode.swift in Sources */,
+				4510CD2F1C293F3700C77B44 /* Post.swift in Sources */,
+				4510CD2C1C293F3700C77B44 /* Comment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +441,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,6 +453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.terietor.JSONAPIMapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -327,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

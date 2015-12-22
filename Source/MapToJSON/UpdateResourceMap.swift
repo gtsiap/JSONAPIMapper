@@ -18,30 +18,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import XCTest
+class UpdateResourceMap: BasicMap {
 
-class Tests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    private let object: Mappable
+
+    private var dataJSON: [String : AnyObject] {
+        var dataJSON: [String : AnyObject] = [
+            "type": self.object.dynamicType.resource,
+            "attributes": self.fieldsDictionary
+        ]
+
+
+        dataJSON["id"] = self.objectId
+
+        return dataJSON
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+
+    private var objectId: String {
+        guard let id = self.object.id else {
+            fatalError("Missing object id")
         }
+
+        return String(id)
     }
-    
+
+    var objectJSON: [String : AnyObject] {
+        return ["data": self.dataJSON]
+    }
+
+    init(object: Mappable) {
+        self.object = object
+        super.init()
+    }
+
 }
