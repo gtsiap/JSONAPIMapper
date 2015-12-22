@@ -23,13 +23,20 @@ class CreateResourceMap: RelationshipMap {
     private var dataJSON: [String : AnyObject] {
         var dataJSON: [String : AnyObject] = [
             "type": self.object.dynamicType.resource,
-            "attributes": self.fieldsDictionary
+            "attributes": self.attributesDictionary
         ]
 
-        if !self.relationshipsDictionary.isEmpty {
-            dataJSON["relationships"] = self.relationshipsDictionary
+        guard
+           !self.relationshipObjects.isEmpty
+        else { return dataJSON }
+        
+        var relationshipsJSON = [String : AnyObject]()
+        self.relationshipObjects.forEach() {
+            relationshipsJSON[$0.relationshipName] = $0.toJSON()
         }
-
+        
+        dataJSON["relationships"] = relationshipsJSON
+        
         return dataJSON
     }
 

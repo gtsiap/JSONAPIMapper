@@ -18,8 +18,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-public protocol Map {
-
-    subscript(key: String) -> Map { get }
-
+class BasicMap: Map {
+    private(set) var attributesDictionary: [String : AnyObject] = [String : AnyObject]()
+    private(set) var currentKey: String!
+    
+    subscript(key: String) -> Map {
+        self.currentKey = key
+        return self
+    }
+    
+    func retrieveValue(value: AnyObject?) {
+        self.attributesDictionary[self.currentKey] = value
+    }
 }

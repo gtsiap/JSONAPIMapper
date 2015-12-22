@@ -62,16 +62,14 @@ class Encode: XCTestCase {
 
         var updateRelationshipJSONObject = try! Mapper<Post>().updateRelationshipDictionary(
             post,
-            relationship: "author",
-            relationshipType: author.dynamicType
+            relationship: "author"
         )
 
         XCTAssertEqual(retrieveJSONObject("update_relationship"), updateRelationshipJSONObject as NSDictionary)
 
         updateRelationshipJSONObject = try! Mapper<Post>().updateRelationshipDictionary(
             post,
-            relationship: "comments",
-            relationshipType: comment1.dynamicType
+            relationship: "comments"
         )
 
         XCTAssertEqual(retrieveJSONObject("update_relationship2"), updateRelationshipJSONObject as NSDictionary)

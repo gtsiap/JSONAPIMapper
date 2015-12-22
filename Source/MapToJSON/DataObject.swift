@@ -18,8 +18,35 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-public protocol Map {
-
-    subscript(key: String) -> Map { get }
-
+internal struct DataObject: JSONableType {
+    let id: String
+    let type: String
+    
+    init(id: String, type: String) {
+        self.id = id
+        self.type = type
+    }
+    
+    init(mappableObject: Mappable) {
+        self.id = String(mappableObject.id!)
+        self.type = mappableObject.dynamicType.resource
+    }
+    
+    init(JSON: [String : AnyObject]) {
+        guard let
+            id = JSON["id"] as? String,
+            type = JSON["type"] as? String
+            else { fatalError() }
+        
+        self.id = id
+        self.type = type
+    }
+    
+    func toJSON() -> [String : AnyObject] {
+        return [
+            "type": self.type,
+            "id": String(self.id)
+        ]
+    }
+    
 }

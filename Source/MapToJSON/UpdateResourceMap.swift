@@ -22,28 +22,15 @@ class UpdateResourceMap: BasicMap {
 
     private let object: Mappable
 
-    private var dataJSON: [String : AnyObject] {
-        var dataJSON: [String : AnyObject] = [
-            "type": self.object.dynamicType.resource,
-            "attributes": self.fieldsDictionary
-        ]
-
-
-        dataJSON["id"] = self.objectId
-
-        return dataJSON
-    }
-
-    private var objectId: String {
-        guard let id = self.object.id else {
-            fatalError("Missing object id")
-        }
-
-        return String(id)
-    }
-
     var objectJSON: [String : AnyObject] {
-        return ["data": self.dataJSON]
+        let dataJSON =  ResourceObject(
+            mappableObject: self.object,
+            attributes: self.attributesDictionary
+        ).toJSON()
+        
+        return [
+            "data" : dataJSON
+        ]
     }
 
     init(object: Mappable) {

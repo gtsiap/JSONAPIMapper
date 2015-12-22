@@ -18,16 +18,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-class MapFromJSON: BasicMap {
+class MapFromJSON: Map {
 
     private let includedData: [[String : AnyObject]]
     private let resourceData: [String : AnyObject]
 
-    private lazy var fieldsData: [String : AnyObject] = {
-        var fieldsData = [String : AnyObject]()
-
-        if let fieldsData = self.resourceData["attributes"] as? [String : AnyObject] {
-            return fieldsData
+    private lazy var attributes: [String : AnyObject] = {
+        if let attributes = self.resourceData["attributes"] as? [String : AnyObject] {
+            return attributes
         }
 
         return [String : AnyObject]()
@@ -40,6 +38,7 @@ class MapFromJSON: BasicMap {
 
         return nil
     }()
+    private(set) var currentKey: String!
 
     init(
         resourceData: [String : AnyObject],
@@ -48,8 +47,12 @@ class MapFromJSON: BasicMap {
     ) {
         self.resourceData = resourceData
         self.includedData = includedData
-
-        guard let jsonId = self.resourceData["id"] as? String, id = Int(jsonId) else { fatalError("WTF") }
+        
+        guard let
+            jsonId = self.resourceData["id"] as? String,
+            id = Int(jsonId)
+        else { fatalError("WTF") }
+        
         mappableObject.id = id
     }
 
@@ -61,8 +64,13 @@ class MapFromJSON: BasicMap {
         )
     }
 
+    subscript(key: String) -> Map {
+        self.currentKey = key
+        return self
+    }
+    
     func resourceValue<T>() -> T? {
-        return self.fieldsData[self.currentKey] as? T
+        return self.attributes[self.currentKey] as? T
     }
 
     func relationshipValue<T: Mappable>() -> T? {

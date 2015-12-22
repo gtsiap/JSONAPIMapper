@@ -92,14 +92,12 @@ public class Mapper<T: Mappable>  {
 
     public func updateRelationshipDictionary(
         resourceObject: T,
-        relationship: String,
-        relationshipType: Mappable.Type
+        relationship: String
     ) throws  -> [String : AnyObject] {
 
         let map = UpdateRelationshipMap(
             resourceObject: resourceObject,
-            relationship: relationship,
-            relationshipType: relationshipType
+            relationship: relationship
         )
 
         resourceObject.map(map)
@@ -109,13 +107,11 @@ public class Mapper<T: Mappable>  {
 
     public func updateRelationshipJSON(
         resourceObject: T,
-        relationship: String,
-        relationshipType: Mappable.Type
+        relationship: String
     ) throws  -> String {
         return try toJSONString(updateRelationshipDictionary(
             resourceObject,
-            relationship: relationship,
-            relationshipType: relationshipType
+            relationship: relationship
         ))
     }
 

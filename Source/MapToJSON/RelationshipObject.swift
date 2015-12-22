@@ -18,8 +18,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-public protocol Map {
-
-    subscript(key: String) -> Map { get }
-
+struct RelationshipObject: JSONableType {
+    let relationshipName: String
+    let dataObjects: [DataObject]
+    
+    func toJSON() -> [String : AnyObject] {
+        if self.dataObjects.count == 1 {
+            return [
+                "data": self.dataObjects[0].toJSON()
+            ]
+        }
+        
+        var dataObjectJSON = [[String : AnyObject]]()
+        self.dataObjects.forEach() {
+            dataObjectJSON.append($0.toJSON())
+        }
+        
+        return ["data": dataObjectJSON]
+    }
+    
 }
+

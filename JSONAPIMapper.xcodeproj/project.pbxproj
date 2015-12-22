@@ -33,6 +33,12 @@
 		4510CD3B1C29424500C77B44 /* update_relationship.json in Resources */ = {isa = PBXBuildFile; fileRef = 4510CD361C29424500C77B44 /* update_relationship.json */; };
 		4510CD3C1C29424500C77B44 /* update_relationship2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4510CD371C29424500C77B44 /* update_relationship2.json */; };
 		4510CD3D1C29424500C77B44 /* update_resource.json in Resources */ = {isa = PBXBuildFile; fileRef = 4510CD381C29424500C77B44 /* update_resource.json */; };
+		4510CD461C29683D00C77B44 /* RelationshipObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD401C29673A00C77B44 /* RelationshipObject.swift */; };
+		4510CD471C29683D00C77B44 /* ResourseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD421C29675800C77B44 /* ResourseObject.swift */; };
+		4510CD481C29683D00C77B44 /* DataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD441C29676800C77B44 /* DataObject.swift */; };
+		4510CD491C29685500C77B44 /* JSONableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD3E1C2964FC00C77B44 /* JSONableType.swift */; };
+		4510CD4B1C2968E600C77B44 /* RelationshipMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD4A1C2968E600C77B44 /* RelationshipMap.swift */; };
+		4510CD4D1C296B0500C77B44 /* BasicMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD4C1C296B0500C77B44 /* BasicMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +81,12 @@
 		4510CD361C29424500C77B44 /* update_relationship.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = update_relationship.json; sourceTree = "<group>"; };
 		4510CD371C29424500C77B44 /* update_relationship2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = update_relationship2.json; sourceTree = "<group>"; };
 		4510CD381C29424500C77B44 /* update_resource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = update_resource.json; sourceTree = "<group>"; };
+		4510CD3E1C2964FC00C77B44 /* JSONableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONableType.swift; sourceTree = "<group>"; };
+		4510CD401C29673A00C77B44 /* RelationshipObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipObject.swift; sourceTree = "<group>"; };
+		4510CD421C29675800C77B44 /* ResourseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourseObject.swift; sourceTree = "<group>"; };
+		4510CD441C29676800C77B44 /* DataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObject.swift; sourceTree = "<group>"; };
+		4510CD4A1C2968E600C77B44 /* RelationshipMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipMap.swift; sourceTree = "<group>"; };
+		4510CD4C1C296B0500C77B44 /* BasicMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,9 +168,15 @@
 		4510CD071C293E3800C77B44 /* MapToJSON */ = {
 			isa = PBXGroup;
 			children = (
+				4510CD4A1C2968E600C77B44 /* RelationshipMap.swift */,
 				4510CD081C293E3800C77B44 /* CreateResourceMap.swift */,
 				4510CD091C293E3800C77B44 /* UpdateRelationshipMap.swift */,
 				4510CD0A1C293E3800C77B44 /* UpdateResourceMap.swift */,
+				4510CD3E1C2964FC00C77B44 /* JSONableType.swift */,
+				4510CD401C29673A00C77B44 /* RelationshipObject.swift */,
+				4510CD421C29675800C77B44 /* ResourseObject.swift */,
+				4510CD441C29676800C77B44 /* DataObject.swift */,
+				4510CD4C1C296B0500C77B44 /* BasicMap.swift */,
 			);
 			path = MapToJSON;
 			sourceTree = "<group>";
@@ -308,17 +326,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4510CD491C29685500C77B44 /* JSONableType.swift in Sources */,
+				4510CD461C29683D00C77B44 /* RelationshipObject.swift in Sources */,
+				4510CD4B1C2968E600C77B44 /* RelationshipMap.swift in Sources */,
+				4510CD471C29683D00C77B44 /* ResourseObject.swift in Sources */,
+				4510CD481C29683D00C77B44 /* DataObject.swift in Sources */,
+				4510CD181C293E3800C77B44 /* UpdateResourceMap.swift in Sources */,
 				4510CD1B1C293E3800C77B44 /* Transformer.swift in Sources */,
 				4510CD111C293E3800C77B44 /* ObjectMap.swift in Sources */,
 				4510CD131C293E3800C77B44 /* Mappable.swift in Sources */,
 				4510CD101C293E3800C77B44 /* MapFromJson.swift in Sources */,
 				4510CD121C293E3800C77B44 /* RelationshipJSONObject.swift in Sources */,
 				4510CD161C293E3800C77B44 /* CreateResourceMap.swift in Sources */,
+				4510CD4D1C296B0500C77B44 /* BasicMap.swift in Sources */,
 				4510CD151C293E3800C77B44 /* MappingError.swift in Sources */,
 				4510CD191C293E3800C77B44 /* Operators.swift in Sources */,
 				4510CD141C293E3800C77B44 /* Mapper.swift in Sources */,
 				4510CD1A1C293E3800C77B44 /* ObjectTransformer.swift in Sources */,
-				4510CD181C293E3800C77B44 /* UpdateResourceMap.swift in Sources */,
 				4510CD171C293E3800C77B44 /* UpdateRelationshipMap.swift in Sources */,
 				4510CD0F1C293E3800C77B44 /* Map.swift in Sources */,
 			);
