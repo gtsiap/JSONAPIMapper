@@ -22,21 +22,13 @@ import XCTest
 
 @testable import JSONAPIMapper
 
-class Decode: XCTestCase {
+class Decode: BaseTestCase {
 
     private static var JSON: [String : AnyObject] =  [String : AnyObject]()
     private static var post: Post!
 
-    override class func setUp() {
-        let jsonDataPath = NSBundle(forClass: Decode.self).URLForResource("parse_resource", withExtension: ".json")
-        let jsonData = NSData(contentsOfURL: jsonDataPath!)
-        let jsonObject = try! NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.AllowFragments)
-
-        Decode.JSON = jsonObject as! [String : AnyObject]
-    }
-
     func test1Post() {
-        let posts = try! Mapper<Post>().fromJSON(Decode.JSON)
+        let posts = try! Mapper<Post>().fromJSON(retrieveJSONObject("parse_resource") as! [String : AnyObject])
         let post = posts[0]
 
         XCTAssertEqual(posts.count, 1)

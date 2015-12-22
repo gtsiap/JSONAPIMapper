@@ -40,6 +40,7 @@
 		4510CD4B1C2968E600C77B44 /* RelationshipMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD4A1C2968E600C77B44 /* RelationshipMap.swift */; };
 		4510CD4D1C296B0500C77B44 /* BasicMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD4C1C296B0500C77B44 /* BasicMap.swift */; };
 		4510CD4F1C296CA800C77B44 /* JSONAPIDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD4E1C296CA800C77B44 /* JSONAPIDocument.swift */; };
+		4510CD511C296F4000C77B44 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD501C296F4000C77B44 /* BaseTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		4510CD4A1C2968E600C77B44 /* RelationshipMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipMap.swift; sourceTree = "<group>"; };
 		4510CD4C1C296B0500C77B44 /* BasicMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicMap.swift; sourceTree = "<group>"; };
 		4510CD4E1C296CA800C77B44 /* JSONAPIDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPIDocument.swift; sourceTree = "<group>"; };
+		4510CD501C296F4000C77B44 /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				4510CD331C29424500C77B44 /* data */,
 				4510CD1D1C293F3700C77B44 /* Decode.swift */,
 				4510CD1E1C293F3700C77B44 /* Encode.swift */,
+				4510CD501C296F4000C77B44 /* BaseTestCase.swift */,
 				4510CD201C293F3700C77B44 /* Models */,
 				4510CCF71C293C0E00C77B44 /* Info.plist */,
 			);
@@ -359,6 +362,7 @@
 				4510CD2E1C293F3700C77B44 /* Person.swift in Sources */,
 				4510CD2A1C293F3700C77B44 /* Encode.swift in Sources */,
 				4510CD2D1C293F3700C77B44 /* Hobby.swift in Sources */,
+				4510CD511C296F4000C77B44 /* BaseTestCase.swift in Sources */,
 				4510CD291C293F3700C77B44 /* Decode.swift in Sources */,
 				4510CD2F1C293F3700C77B44 /* Post.swift in Sources */,
 				4510CD2C1C293F3700C77B44 /* Comment.swift in Sources */,
