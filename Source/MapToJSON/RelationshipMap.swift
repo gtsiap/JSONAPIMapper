@@ -51,7 +51,8 @@ class RelationshipMap: BasicMap {
         } // end for
         
         if relationshipName.isEmpty {
-            fatalError()
+            print("Missing Name")
+            return
         }
         
         let relationshipObject = RelationshipObject(relationshipName: relationshipName, dataObjects: dataObjects)

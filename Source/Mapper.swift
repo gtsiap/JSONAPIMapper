@@ -80,7 +80,7 @@ public class Mapper<T: Mappable>  {
 
         resourceObject.map(map)
 
-        return map.objectJSON
+        return try map.objectJSON()
     }
 
     public func updateRelationshipJSON(
@@ -101,7 +101,7 @@ public class Mapper<T: Mappable>  {
         )
 
         guard let stringData = NSString(data: data, encoding: NSUTF8StringEncoding) else {
-            fatalError()
+            throw MappingError(description: "Couldn't create json", data:  data)
         }
 
         return stringData as String

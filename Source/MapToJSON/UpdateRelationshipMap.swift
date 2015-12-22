@@ -22,7 +22,7 @@ class UpdateRelationshipMap: RelationshipMap {
 
     private let relationship: String
 
-    var objectJSON: [String : AnyObject] {
+    func objectJSON() throws -> [String : AnyObject] {
 
         for relationshipObject in self.relationshipObjects {
             if relationshipObject.relationshipName == relationship {
@@ -30,7 +30,10 @@ class UpdateRelationshipMap: RelationshipMap {
             }
         }
         
-        fatalError()
+        throw MappingError(
+            description: "Missing Relationships",
+            data:  self.object
+        )
     }
 
     init(

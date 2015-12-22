@@ -30,7 +30,10 @@ public class ObjectTransformer<T: ObjectMappable>: Transformer {
     public func fromJSON(map: Map) {
         guard let
             mapFromJSON = map as? MapFromJSON
-        else { fatalError() }
+        else {
+            print("WRONG MAP!!!")
+            return
+        }
 
         let objectMap = ObjectMap()
         objectMap.data = mapFromJSON.resourceValue()

@@ -19,7 +19,8 @@
 // THE SOFTWARE.
 
 class MapFromJSON: Map {
-
+    var errors = [ErrorType]()
+    
     private let includedData: [[String : AnyObject]]
     private let resourceData: [String : AnyObject]
 
@@ -52,7 +53,13 @@ class MapFromJSON: Map {
         guard let
             jsonId = self.resourceData["id"] as? String,
             id = Int(jsonId)
-        else { fatalError("WTF") }
+        else {
+            self.errors.append(MappingError(
+                description: "Missing id",
+                data:  self.resourceData)
+            )
+            return
+        }
         
         mappableObject.id = id
     }

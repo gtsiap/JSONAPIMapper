@@ -21,7 +21,7 @@
 class BasicMap: Map {
     private(set) var attributesDictionary: [String : AnyObject] = [String : AnyObject]()
     private(set) var currentKey: String!
-    
+        
     subscript(key: String) -> Map {
         self.currentKey = key
         return self

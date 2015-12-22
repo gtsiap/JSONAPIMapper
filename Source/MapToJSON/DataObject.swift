@@ -31,17 +31,7 @@ internal struct DataObject: JSONableType {
         self.id = String(mappableObject.id!)
         self.type = mappableObject.dynamicType.resource
     }
-    
-    init(JSON: [String : AnyObject]) {
-        guard let
-            id = JSON["id"] as? String,
-            type = JSON["type"] as? String
-            else { fatalError() }
-        
-        self.id = id
-        self.type = type
-    }
-    
+
     func toJSON() -> [String : AnyObject] {
         return [
             "type": self.type,

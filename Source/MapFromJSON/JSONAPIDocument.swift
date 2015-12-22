@@ -35,7 +35,7 @@ struct JSONAPIDocument {
         } else if let data = JSON["data"] as? [String : AnyObject] {
             self.resourceData = [data]
         } else {
-             throw MappingError(data: JSON)
+            throw MappingError(description: "Missing data", data: JSON)
         }
     }
 }

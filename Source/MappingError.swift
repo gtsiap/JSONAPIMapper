@@ -19,5 +19,7 @@
 // THE SOFTWARE.
 
 struct MappingError: ErrorType {
-    let data: [String : AnyObject]
+    let description: String
+    let data: AnyObject
 }
+
