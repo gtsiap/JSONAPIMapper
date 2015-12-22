@@ -1,0 +1,15 @@
+{
+  "data": [{
+    "type": "photos",
+    "attributes": {
+      "title": "Photo 1",
+      "src": "http://example.com/photo1.png"
+    }
+  }, {
+    "type": "photos",
+    "attributes": {
+      "title": "Photo 2",
+      "src": "http://example.com/photo2.png"
+    }
+  }]
+}

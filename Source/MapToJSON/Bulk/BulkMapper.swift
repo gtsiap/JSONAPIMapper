@@ -18,30 +18,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-class CreateResourceMap: RelationshipMap {
-
-    var dataJSON: [String : AnyObject] {
-        var dataJSON: [String : AnyObject] = [
-            "type": self.object.dynamicType.resource,
-            "attributes": self.attributesDictionary
-        ]
-
-        guard
-           !self.relationshipObjects.isEmpty
-        else { return dataJSON }
+public class BulkMapper<T: Mappable> {
+    public init() {}
+    
+    public func createResourcesDictionary(
+        mappableObjects: [T]
+    ) throws -> [String : AnyObject] {
+        var dataList = [[String : AnyObject]]()
+        for mappableObject in mappableObjects {
+            let map = CreateResourceMap(object: mappableObject)
+            mappableObject.map(map)
         
-        var relationshipsJSON = [String : AnyObject]()
-        self.relationshipObjects.forEach() {
-            relationshipsJSON[$0.relationshipName] = $0.toJSON()
+            dataList.append(map.dataJSON)
         }
         
-        dataJSON["relationships"] = relationshipsJSON
-        
-        return dataJSON
+        return ["data" : dataList]
     }
-
-    var objectJSON: [String : AnyObject] {
-        return ["data": self.dataJSON]
+    
+    public func createResourcesJSON(
+        mappableObjects: [T]
+    ) throws -> String {
+        return try toJSONString(createResourcesDictionary(mappableObjects))
     }
-
 }

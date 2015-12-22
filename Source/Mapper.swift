@@ -93,18 +93,17 @@ public class Mapper<T: Mappable>  {
         ))
     }
 
-    // MARK: private funcs
-    private func toJSONString(dictionary: [String : AnyObject]) throws -> String {
-        let data = try NSJSONSerialization.dataWithJSONObject(
-            dictionary,
-            options: NSJSONWritingOptions()
-        )
+}
 
-        guard let stringData = NSString(data: data, encoding: NSUTF8StringEncoding) else {
-            throw MappingError(description: "Couldn't create json", data:  data)
-        }
-
-        return stringData as String
+func toJSONString(dictionary: [String : AnyObject]) throws -> String {
+    let data = try NSJSONSerialization.dataWithJSONObject(
+        dictionary,
+        options: NSJSONWritingOptions()
+    )
+    
+    guard let stringData = NSString(data: data, encoding: NSUTF8StringEncoding) else {
+        throw MappingError(description: "Couldn't create json", data:  data)
     }
-
+    
+    return stringData as String
 }
