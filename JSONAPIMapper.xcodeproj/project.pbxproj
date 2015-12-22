@@ -39,6 +39,7 @@
 		4510CD491C29685500C77B44 /* JSONableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD3E1C2964FC00C77B44 /* JSONableType.swift */; };
 		4510CD4B1C2968E600C77B44 /* RelationshipMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD4A1C2968E600C77B44 /* RelationshipMap.swift */; };
 		4510CD4D1C296B0500C77B44 /* BasicMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD4C1C296B0500C77B44 /* BasicMap.swift */; };
+		4510CD4F1C296CA800C77B44 /* JSONAPIDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CD4E1C296CA800C77B44 /* JSONAPIDocument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		4510CD441C29676800C77B44 /* DataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObject.swift; sourceTree = "<group>"; };
 		4510CD4A1C2968E600C77B44 /* RelationshipMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationshipMap.swift; sourceTree = "<group>"; };
 		4510CD4C1C296B0500C77B44 /* BasicMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicMap.swift; sourceTree = "<group>"; };
+		4510CD4E1C296CA800C77B44 /* JSONAPIDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAPIDocument.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				4510CD011C293E3800C77B44 /* MapFromJson.swift */,
 				4510CD021C293E3800C77B44 /* ObjectMap.swift */,
 				4510CD031C293E3800C77B44 /* RelationshipJSONObject.swift */,
+				4510CD4E1C296CA800C77B44 /* JSONAPIDocument.swift */,
 			);
 			path = MapFromJSON;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				4510CD131C293E3800C77B44 /* Mappable.swift in Sources */,
 				4510CD101C293E3800C77B44 /* MapFromJson.swift in Sources */,
 				4510CD121C293E3800C77B44 /* RelationshipJSONObject.swift in Sources */,
+				4510CD4F1C296CA800C77B44 /* JSONAPIDocument.swift in Sources */,
 				4510CD161C293E3800C77B44 /* CreateResourceMap.swift in Sources */,
 				4510CD4D1C296B0500C77B44 /* BasicMap.swift in Sources */,
 				4510CD151C293E3800C77B44 /* MappingError.swift in Sources */,

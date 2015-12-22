@@ -27,42 +27,20 @@ public class Mapper<T: Mappable>  {
     public func fromJSON(jsonData: [String : AnyObject]) throws -> [T] {
 
         var objects = [T]()
-
-        var includedData = [[String : AnyObject]]()
-
-        if let data = jsonData["included"] as? [[String : AnyObject]] {
-           includedData = data
-        }
-
-        if let dataArray = jsonData["data"] as? [[String : AnyObject]] {
-
-            for resourceData in dataArray {
-
-                let object = T()
-                let map = MapFromJSON(
-                    resourceData: resourceData,
-                    includedData: includedData,
-                    mappableObject: object
-                )
-
-                object.map(map)
-                objects.append(object)
-
-            }
-        } else if let data = jsonData["data"] as? [String : AnyObject] {
+        
+        let jsonapiDocument = try JSONAPIDocument(JSON: jsonData)
+        for resourceData in jsonapiDocument.resourceData {
             let object = T()
             let map = MapFromJSON(
-                resourceData: data,
-                includedData: includedData,
+                resourceData: resourceData,
+                includedData: jsonapiDocument.includedData,
                 mappableObject: object
             )
-
+            
             object.map(map)
             objects.append(object)
-        } else {
-            throw MappingError(data: jsonData)
         }
-
+        
         return objects
     }
 

@@ -38,6 +38,7 @@ class MapFromJSON: Map {
 
         return nil
     }()
+    
     private(set) var currentKey: String!
 
     init(
