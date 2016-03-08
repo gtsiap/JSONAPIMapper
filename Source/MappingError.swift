@@ -18,8 +18,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-struct MappingError: ErrorType {
-    let description: String
-    let data: AnyObject
+public struct MappingError: ErrorType {
+    public let description: String
+    public let data: AnyObject
 }
 
