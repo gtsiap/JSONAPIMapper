@@ -24,6 +24,8 @@ final class Comment {
 
     var id: Int?
     var body: String?
+    var meta: [String : AnyObject]?
+    var links: [String : AnyObject]?
 
 }
 

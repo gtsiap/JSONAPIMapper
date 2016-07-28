@@ -62,6 +62,15 @@ class MapFromJSON: Map {
         }
         
         mappableObject.id = id
+
+        if let meta = resourceData["meta"] as? [String : AnyObject] {
+            mappableObject.meta = meta
+        }
+
+
+        if let links = resourceData["links"] as? [String : AnyObject] {
+            mappableObject.links = links
+        }
     }
 
     convenience init(resourceData: [String : AnyObject], mappableObject: Mappable) {

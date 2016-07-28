@@ -41,6 +41,13 @@ class Decode: BaseTestCase {
         XCTAssertEqual(post.info!.something1, "something1")
         XCTAssertEqual(post.info!.something2, 10)
 
+        XCTAssertNotNil(post.meta?["test1"])
+        XCTAssertEqual((post.meta?["test1"] as! String), "test1")
+
+        XCTAssertNotNil(post.links)
+        XCTAssertNotNil(post.links?["self"])
+        XCTAssertEqual((post.links?["self"] as! String), "http://example.com/posts/1")
+
         Decode.post = post
     }
 

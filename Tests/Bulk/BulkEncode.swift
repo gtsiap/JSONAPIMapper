@@ -26,6 +26,8 @@ import JSONAPIMapper
 final class Photo {
     
     var id: Int?
+    var meta: [String : AnyObject]?
+    var links: [String : AnyObject]?
     var title: String?
     var src: String?
     

@@ -23,6 +23,8 @@ import JSONAPIMapper
 final class Hobby {
 
     var id: Int?
+    var meta: [String : AnyObject]?
+    var links: [String : AnyObject]?
 }
 
 extension Hobby: Mappable {

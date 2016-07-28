@@ -23,6 +23,8 @@ import JSONAPIMapper
 final class Person {
 
     var id: Int?
+    var meta: [String : AnyObject]?
+    var links: [String : AnyObject]?
     var firstName: String?
     var lastName: String?
     var twitter: String?

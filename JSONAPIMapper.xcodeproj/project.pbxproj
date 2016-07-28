@@ -592,6 +592,7 @@
 				4510CCFD1C293C0E00C77B44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

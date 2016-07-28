@@ -23,6 +23,9 @@ public protocol Mappable: class {
     func map(map: Map)
 
     var id: Int? { get set }
+    var meta: [String : AnyObject]? { get set }
+    var links: [String : AnyObject]? { get set }
+
     static var resource: String { get }
     static var relationships: [String : Mappable.Type] { get }
 }

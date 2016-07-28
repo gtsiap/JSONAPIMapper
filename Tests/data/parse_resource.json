@@ -35,6 +35,9 @@
         },
         "links": {
             "self": "http://example.com/posts/1"
+        },
+        "meta": {
+            "test1": "test1"
         }
     }],
     "included": [
