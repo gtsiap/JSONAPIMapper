@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-open class ObjectTransformer<T: ObjectMappable>: Transformer {
+public class ObjectTransformer<T: ObjectMappable>: Transformer {
 
     var object: T?
     let handler: (_ objectMap: Map, _ object: T) -> ()
@@ -27,7 +27,7 @@ open class ObjectTransformer<T: ObjectMappable>: Transformer {
         self.handler = handler
     }
 
-    open func fromJSON(_ map: Map) {
+    public func fromJSON(_ map: Map) {
         guard let
             mapFromJSON = map as? MapFromJSON
         else {

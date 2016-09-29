@@ -21,7 +21,7 @@
 class ObjectMap: Map {
 
     var data: [String : Any]?
-    fileprivate(set) var currentKey: String!
+    private(set) var currentKey: String!
 
     subscript(key: String) -> Map {
         self.currentKey = key

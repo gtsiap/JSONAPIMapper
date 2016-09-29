@@ -20,7 +20,7 @@
 
 class UpdateResourceMap: BasicMap {
 
-    fileprivate let object: Mappable
+    private let object: Mappable
 
     var objectJSON: [String : Any] {
         let dataJSON =  ResourceObject(

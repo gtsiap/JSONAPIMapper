@@ -20,7 +20,7 @@
 
 class UpdateRelationshipMap: RelationshipMap {
 
-    fileprivate let relationship: String
+    private let relationship: String
 
     func objectJSON() throws -> [String : Any] {
 

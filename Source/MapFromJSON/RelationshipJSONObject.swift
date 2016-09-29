@@ -23,7 +23,7 @@ struct RelationshipJSONObject {
     let jsonField: String
     let id: Int
 
-    fileprivate init(resourceType: String, jsonField: String, id: Int) {
+    private init(resourceType: String, jsonField: String, id: Int) {
         self.resourceType = resourceType
         self.id = id
         self.jsonField = jsonField

@@ -21,10 +21,10 @@
 class MapFromJSON: Map {
     var errors = [Error]()
     
-    fileprivate let includedData: [[String : Any]]
-    fileprivate let resourceData: [String : Any]
+    private let includedData: [[String : Any]]
+    private let resourceData: [String : Any]
 
-    fileprivate lazy var attributes: [String : Any] = {
+    private lazy var attributes: [String : Any] = {
         if let attributes = self.resourceData["attributes"] as? [String : Any] {
             return attributes
         }
@@ -32,7 +32,7 @@ class MapFromJSON: Map {
         return [String : Any]()
     }()
 
-    fileprivate lazy var relationships: [RelationshipJSONObject]? = {
+    private lazy var relationships: [RelationshipJSONObject]? = {
         if let relationships = self.resourceData["relationships"] as? [String : Any] {
             return RelationshipJSONObject.fromJSON(relationships)
         }
@@ -40,7 +40,7 @@ class MapFromJSON: Map {
         return nil
     }()
     
-    fileprivate(set) var currentKey: String!
+    private(set) var currentKey: String!
 
     init(
         resourceData: [String : Any],
