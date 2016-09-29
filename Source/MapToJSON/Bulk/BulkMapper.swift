@@ -18,13 +18,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-public class BulkMapper<T: Mappable> {
+open class BulkMapper<T: Mappable> {
     public init() {}
     
-    public func createResourcesDictionary(
-        mappableObjects: [T]
-    ) throws -> [String : AnyObject] {
-        var dataList = [[String : AnyObject]]()
+    open func createResourcesDictionary(
+        _ mappableObjects: [T]
+    ) throws -> [String : Any] {
+        var dataList = [[String : Any]]()
         for mappableObject in mappableObjects {
             let map = CreateResourceMap(object: mappableObject)
             mappableObject.map(map)
@@ -32,11 +32,11 @@ public class BulkMapper<T: Mappable> {
             dataList.append(map.dataJSON)
         }
         
-        return ["data" : dataList]
+        return ["data" : dataList as AnyObject]
     }
     
-    public func createResourcesJSON(
-        mappableObjects: [T]
+    open func createResourcesJSON(
+        _ mappableObjects: [T]
     ) throws -> String {
         return try toJSONString(createResourcesDictionary(mappableObjects))
     }

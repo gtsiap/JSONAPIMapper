@@ -19,5 +19,5 @@
 // THE SOFTWARE.
 
 public protocol Transformer {
-    func fromJSON(map: Map)
+    func fromJSON(_ map: Map)
 }

@@ -23,8 +23,8 @@ import JSONAPIMapper
 final class Person {
 
     var id: Int?
-    var meta: [String : AnyObject]?
-    var links: [String : AnyObject]?
+    var meta: [String : Any]?
+    var links: [String : Any]?
     var firstName: String?
     var lastName: String?
     var twitter: String?
@@ -43,7 +43,7 @@ extension Person: Mappable {
         ]
     }
 
-    func map(map: Map) {
+    func map(_ map: Map) {
         self.firstName <~ map["first-name"]
         self.lastName  <~ map["last-name"]
         self.twitter   <~ map["twitter"]

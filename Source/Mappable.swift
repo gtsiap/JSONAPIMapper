@@ -20,11 +20,11 @@
 
 public protocol Mappable: class {
     init()
-    func map(map: Map)
+    func map(_ map: Map)
 
     var id: Int? { get set }
-    var meta: [String : AnyObject]? { get set }
-    var links: [String : AnyObject]? { get set }
+    var meta: [String : Any]? { get set }
+    var links: [String : Any]? { get set }
 
     static var resource: String { get }
     static var relationships: [String : Mappable.Type] { get }

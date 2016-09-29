@@ -20,9 +20,9 @@
 
 class UpdateRelationshipMap: RelationshipMap {
 
-    private let relationship: String
+    fileprivate let relationship: String
 
-    func objectJSON() throws -> [String : AnyObject] {
+    func objectJSON() throws -> [String : Any] {
 
         for relationshipObject in self.relationshipObjects {
             if relationshipObject.relationshipName == relationship {

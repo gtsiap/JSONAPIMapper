@@ -23,24 +23,24 @@ struct RelationshipJSONObject {
     let jsonField: String
     let id: Int
 
-    private init(resourceType: String, jsonField: String, id: Int) {
+    fileprivate init(resourceType: String, jsonField: String, id: Int) {
         self.resourceType = resourceType
         self.id = id
         self.jsonField = jsonField
     }
 
-    static func fromJSON(JSON: [String : AnyObject]) -> [RelationshipJSONObject]? {
+    static func fromJSON(_ JSON: [String : Any]) -> [RelationshipJSONObject]? {
 
         var objects = [RelationshipJSONObject]()
 
         for it in JSON.keys {
 
-            guard let jsonObject = JSON[it] as? [String : AnyObject] else {
+            guard let jsonObject = JSON[it] as? [String : Any] else {
                 return nil
             }
 
             if
-                let jsonData = jsonObject["data"] as? [String : AnyObject],
+                let jsonData = jsonObject["data"] as? [String : Any],
                 let type = jsonData["type"] as? String,
                 let jsonId = jsonData["id"] as? String,
                 let id = Int(jsonId)
@@ -51,7 +51,7 @@ struct RelationshipJSONObject {
                     id: id
                 )
                 objects.append(object)
-            } else if let jsonData = jsonObject["data"] as? [[String : AnyObject]] {
+            } else if let jsonData = jsonObject["data"] as? [[String : Any]] {
 
                 for dataItem in jsonData {
                     let object = RelationshipJSONObject(

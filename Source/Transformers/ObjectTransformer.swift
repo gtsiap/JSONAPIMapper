@@ -18,16 +18,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-public class ObjectTransformer<T: ObjectMappable>: Transformer {
+open class ObjectTransformer<T: ObjectMappable>: Transformer {
 
     var object: T?
-    let handler: (objectMap: Map, object: T) -> ()
+    let handler: (_ objectMap: Map, _ object: T) -> ()
 
-    public init(handler: (objectMap: Map, object: T) -> ()) {
+    public init(handler: @escaping (_ objectMap: Map, _ object: T) -> ()) {
         self.handler = handler
     }
 
-    public func fromJSON(map: Map) {
+    open func fromJSON(_ map: Map) {
         guard let
             mapFromJSON = map as? MapFromJSON
         else {
@@ -42,6 +42,6 @@ public class ObjectTransformer<T: ObjectMappable>: Transformer {
             self.object = T()
         }
 
-        self.handler(objectMap: objectMap, object: self.object!)
+        self.handler(objectMap, self.object!)
     }
 }

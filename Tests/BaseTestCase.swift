@@ -22,13 +22,13 @@ import XCTest
 
 class BaseTestCase: XCTestCase {
 
-    func retrieveJSONObject(jsonFilename: String) -> NSDictionary {
-        let jsonDataPath = NSBundle(forClass: Decode.self).URLForResource(jsonFilename, withExtension: ".json")
-        let jsonData = NSData(contentsOfURL: jsonDataPath!)
+    func retrieveJSONObject(_ jsonFilename: String) -> NSDictionary {
+        let jsonDataPath = Bundle(for: Decode.self).url(forResource: jsonFilename, withExtension: ".json")
+        let jsonData = try? Data(contentsOf: jsonDataPath!)
         
-        return try! NSJSONSerialization.JSONObjectWithData(
-            jsonData!,
-            options: NSJSONReadingOptions.AllowFragments
+        return try! JSONSerialization.jsonObject(
+            with: jsonData!,
+            options: JSONSerialization.ReadingOptions.allowFragments
         ) as! NSDictionary
     }
 }

@@ -20,16 +20,16 @@
 
 class UpdateResourceMap: BasicMap {
 
-    private let object: Mappable
+    fileprivate let object: Mappable
 
-    var objectJSON: [String : AnyObject] {
+    var objectJSON: [String : Any] {
         let dataJSON =  ResourceObject(
             mappableObject: self.object,
             attributes: self.attributesDictionary
         ).toJSON()
         
         return [
-            "data" : dataJSON
+            "data" : dataJSON as AnyObject
         ]
     }
 

@@ -19,5 +19,5 @@
 // THE SOFTWARE.
 
 protocol JSONableType {
-    func toJSON() -> [String : AnyObject]
+    func toJSON() -> [String : Any]
 }

@@ -23,8 +23,8 @@ import JSONAPIMapper
 final class Hobby {
 
     var id: Int?
-    var meta: [String : AnyObject]?
-    var links: [String : AnyObject]?
+    var meta: [String : Any]?
+    var links: [String : Any]?
 }
 
 extension Hobby: Mappable {
@@ -37,5 +37,5 @@ extension Hobby: Mappable {
         return [String : Mappable.Type]()
     }
 
-    func map(map: Map) {}
+    func map(_ map: Map) {}
 }

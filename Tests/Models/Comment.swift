@@ -24,8 +24,8 @@ final class Comment {
 
     var id: Int?
     var body: String?
-    var meta: [String : AnyObject]?
-    var links: [String : AnyObject]?
+    var meta: [String : Any]?
+    var links: [String : Any]?
 
 }
 
@@ -39,7 +39,7 @@ extension Comment: Mappable {
         return [String : Mappable.Type]()
     }
 
-    func map(map: Map) {
+    func map(_ map: Map) {
         self.body <~ map["body"]
     }
 }

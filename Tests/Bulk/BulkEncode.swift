@@ -26,8 +26,8 @@ import JSONAPIMapper
 final class Photo {
     
     var id: Int?
-    var meta: [String : AnyObject]?
-    var links: [String : AnyObject]?
+    var meta: [String : Any]?
+    var links: [String : Any]?
     var title: String?
     var src: String?
     
@@ -43,7 +43,7 @@ extension Photo: Mappable {
         return [String : Mappable.Type]()
     }
     
-    func map(map: Map) {
+    func map(_ map: Map) {
         self.title <~ map["title"]
         self.src   <~ map["src"]
     }

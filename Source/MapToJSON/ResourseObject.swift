@@ -21,18 +21,18 @@
 struct ResourceObject: JSONableType {
     let id: String
     let type: String
-    let attributes: [String : AnyObject]
+    let attributes: [String : Any]
     
-    init(mappableObject: Mappable, attributes: [String : AnyObject]) {
+    init(mappableObject: Mappable, attributes: [String : Any]) {
         self.id = String(mappableObject.id!)
-        self.type = mappableObject.dynamicType.resource
+        self.type = type(of: mappableObject).resource
         self.attributes = attributes
     }
     
-    func toJSON() -> [String : AnyObject] {
+    func toJSON() -> [String : Any] {
         return [
             "type": self.type,
-            "id": String(self.id),
+            "id": self.id,
             "attributes": self.attributes
         ]
     }

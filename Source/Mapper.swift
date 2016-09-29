@@ -20,10 +20,10 @@
 
 public class Mapper<T: Mappable>  {
 
-    public init(){
+    public init() {
     }
 
-    public func fromJSON(jsonData: [String : AnyObject]) throws -> [T] {
+    public func fromJSON(_ jsonData: [String : Any]) throws -> [T] {
 
         var objects = [T]()
         
@@ -39,11 +39,11 @@ public class Mapper<T: Mappable>  {
             object.map(map)
             objects.append(object)
         }
-        
+
         return objects
     }
 
-    public func createResourceDictionary(resourceObject: T) throws  -> [String : AnyObject] {
+    public func createResourceDictionary(_ resourceObject: T) throws  -> [String : Any] {
 
         let map = CreateResourceMap(object: resourceObject)
         resourceObject.map(map)
@@ -51,11 +51,11 @@ public class Mapper<T: Mappable>  {
         return map.objectJSON
     }
 
-    public func createResourceJSON(resourceObject: T) throws  -> String {
+    public func createResourceJSON(_ resourceObject: T) throws  -> String {
         return try toJSONString(createResourceDictionary(resourceObject))
     }
 
-    public func updateResourceDictionary(resourceObject: T) throws  -> [String : AnyObject] {
+    public func updateResourceDictionary(_ resourceObject: T) throws  -> [String : Any] {
 
         let map = UpdateResourceMap(object: resourceObject)
         resourceObject.map(map)
@@ -63,14 +63,14 @@ public class Mapper<T: Mappable>  {
         return map.objectJSON
     }
 
-    public func updateResourceJSON(resourceObject: T) throws  -> String {
+    public func updateResourceJSON(_ resourceObject: T) throws  -> String {
         return try toJSONString(updateResourceDictionary(resourceObject))
     }
 
     public func updateRelationshipDictionary(
-        resourceObject: T,
+        _ resourceObject: T,
         relationship: String
-    ) throws  -> [String : AnyObject] {
+    ) throws  -> [String : Any] {
 
         let map = UpdateRelationshipMap(
             resourceObject: resourceObject,
@@ -83,7 +83,7 @@ public class Mapper<T: Mappable>  {
     }
 
     public func updateRelationshipJSON(
-        resourceObject: T,
+        _ resourceObject: T,
         relationship: String
     ) throws  -> String {
         return try toJSONString(updateRelationshipDictionary(
@@ -94,14 +94,14 @@ public class Mapper<T: Mappable>  {
 
 }
 
-func toJSONString(dictionary: [String : AnyObject]) throws -> String {
-    let data = try NSJSONSerialization.dataWithJSONObject(
-        dictionary,
-        options: NSJSONWritingOptions()
+func toJSONString(_ dictionary: [String : Any]) throws -> String {
+    let data = try JSONSerialization.data(
+        withJSONObject: dictionary,
+        options: JSONSerialization.WritingOptions()
     )
     
-    guard let stringData = NSString(data: data, encoding: NSUTF8StringEncoding) else {
-        throw MappingError(description: "Couldn't create json", data:  data)
+    guard let stringData = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else {
+        throw MappingError(description: "Couldn't create json", data:  data as AnyObject)
     }
     
     return stringData as String

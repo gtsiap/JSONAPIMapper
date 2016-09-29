@@ -48,7 +48,7 @@ class Encode: BaseTestCase {
 
 
         let updateResourceJSONObject = try! Mapper<Post>().updateResourceDictionary(post)
-        XCTAssertEqual(retrieveJSONObject("update_resource"), updateResourceJSONObject)
+        XCTAssertEqual(retrieveJSONObject("update_resource"), updateResourceJSONObject as NSDictionary)
 
         var updateRelationshipJSONObject = try! Mapper<Post>().updateRelationshipDictionary(
             post,

@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 
 class BasicMap: Map {
-    private(set) var attributesDictionary: [String : AnyObject] = [String : AnyObject]()
+    private(set) var attributesDictionary: [String : Any] = [String : Any]()
     private(set) var currentKey: String!
         
     subscript(key: String) -> Map {
@@ -27,7 +27,7 @@ class BasicMap: Map {
         return self
     }
     
-    func retrieveValue(value: AnyObject?) {
+    func retrieveValue(_ value: Any?) {
         self.attributesDictionary[self.currentKey] = value
     }
 }

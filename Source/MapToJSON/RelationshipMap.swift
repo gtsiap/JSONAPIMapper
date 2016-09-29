@@ -26,24 +26,24 @@ class RelationshipMap: BasicMap {
         self.object = object
     }
     
-    func retrieveRelationship(relationshipObject: Mappable) {
+    func retrieveRelationship(_ relationshipObject: Mappable) {
         let dataObject = DataObject(mappableObject: relationshipObject)
         
-        for (key, value) in self.object.dynamicType.relationships {
-            if value == relationshipObject.dynamicType {
+        for (key, value) in type(of: self.object).relationships {
+            if value == type(of: relationshipObject) {
                 let relationshipObject = RelationshipObject(relationshipName: key, dataObjects: [dataObject])
                 self.relationshipObjects.append(relationshipObject)
             } // end if
         } // end for
     }
     
-    func retrieveRelationships<T: Mappable>(mappableRelationshipObjects: [T]) {
+    func retrieveRelationships<T: Mappable>(_ mappableRelationshipObjects: [T]) {
         var dataObjects = [DataObject]()
-        let possibleRelationships = self.object.dynamicType.relationships
+        let possibleRelationships = type(of: self.object).relationships
         var relationshipName = ""
         for mappableRelationshipObject in mappableRelationshipObjects {
             possibleRelationships.forEach() {
-                if $0.1 == mappableRelationshipObject.dynamicType {
+                if $0.1 == type(of: mappableRelationshipObject) {
                     dataObjects.append(DataObject(mappableObject: mappableRelationshipObject))
                     relationshipName = $0.0
                 }

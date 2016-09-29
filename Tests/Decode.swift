@@ -24,11 +24,11 @@ import XCTest
 
 class Decode: BaseTestCase {
 
-    private static var JSON: [String : AnyObject] =  [String : AnyObject]()
+    private static var JSON: [String : Any] =  [String : Any]()
     private static var post: Post!
 
     func test1Post() {
-        let posts = try! Mapper<Post>().fromJSON(retrieveJSONObject("parse_resource") as! [String : AnyObject])
+        let posts = try! Mapper<Post>().fromJSON(retrieveJSONObject("parse_resource") as! [String : Any])
         let post = posts[0]
 
         XCTAssertEqual(posts.count, 1)

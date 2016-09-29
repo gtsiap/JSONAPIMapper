@@ -29,13 +29,13 @@ internal struct DataObject: JSONableType {
     
     init(mappableObject: Mappable) {
         self.id = String(mappableObject.id!)
-        self.type = mappableObject.dynamicType.resource
+        self.type = type(of: mappableObject).resource
     }
 
-    func toJSON() -> [String : AnyObject] {
+    func toJSON() -> [String : Any] {
         return [
             "type": self.type,
-            "id": String(self.id)
+            "id": self.id
         ]
     }
     

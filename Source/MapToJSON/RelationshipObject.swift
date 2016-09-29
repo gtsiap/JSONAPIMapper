@@ -22,19 +22,19 @@ struct RelationshipObject: JSONableType {
     let relationshipName: String
     let dataObjects: [DataObject]
     
-    func toJSON() -> [String : AnyObject] {
+    func toJSON() -> [String : Any] {
         if self.dataObjects.count == 1 {
             return [
                 "data": self.dataObjects[0].toJSON()
             ]
         }
         
-        var dataObjectJSON = [[String : AnyObject]]()
+        var dataObjectJSON = [[String : Any]]()
         self.dataObjects.forEach() {
             dataObjectJSON.append($0.toJSON())
         }
         
-        return ["data": dataObjectJSON]
+        return ["data": dataObjectJSON as AnyObject]
     }
     
 }

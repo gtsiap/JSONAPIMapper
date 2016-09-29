@@ -19,23 +19,23 @@
 // THE SOFTWARE.
 
 struct JSONAPIDocument {
-    let includedData: [[String : AnyObject]]
-    let resourceData: [[String : AnyObject]]
+    let includedData: [[String : Any]]
+    let resourceData: [[String : Any]]
     
-    init(JSON: [String: AnyObject]) throws {
+    init(JSON: [String : Any]) throws {
         
-        if let data = JSON["included"] as? [[String : AnyObject]] {
+        if let data = JSON["included"] as? [[String : Any]] {
             self.includedData = data
         } else {
-            self.includedData = [[String : AnyObject]]()
+            self.includedData = [[String : Any]]()
         }
         
-        if let dataArray = JSON["data"] as? [[String : AnyObject]] {
+        if let dataArray = JSON["data"] as? [[String : Any]] {
             self.resourceData = dataArray
-        } else if let data = JSON["data"] as? [String : AnyObject] {
+        } else if let data = JSON["data"] as? [String : Any] {
             self.resourceData = [data]
         } else {
-            throw MappingError(description: "Missing data", data: JSON)
+            throw MappingError(description: "Missing data", data: JSON as AnyObject)
         }
     }
 }

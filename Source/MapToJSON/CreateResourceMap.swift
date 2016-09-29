@@ -20,9 +20,9 @@
 
 class CreateResourceMap: RelationshipMap {
 
-    var dataJSON: [String : AnyObject] {
-        var dataJSON: [String : AnyObject] = [
-            "type": self.object.dynamicType.resource,
+    var dataJSON: [String : Any] {
+        var dataJSON: [String : Any] = [
+            "type": type(of: self.object).resource,
             "attributes": self.attributesDictionary
         ]
 
@@ -30,7 +30,7 @@ class CreateResourceMap: RelationshipMap {
            !self.relationshipObjects.isEmpty
         else { return dataJSON }
         
-        var relationshipsJSON = [String : AnyObject]()
+        var relationshipsJSON = [String : Any]()
         self.relationshipObjects.forEach() {
             relationshipsJSON[$0.relationshipName] = $0.toJSON()
         }
@@ -40,7 +40,7 @@ class CreateResourceMap: RelationshipMap {
         return dataJSON
     }
 
-    var objectJSON: [String : AnyObject] {
+    var objectJSON: [String : Any] {
         return ["data": self.dataJSON]
     }
 

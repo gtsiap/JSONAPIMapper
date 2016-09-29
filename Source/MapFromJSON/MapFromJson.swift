@@ -19,32 +19,32 @@
 // THE SOFTWARE.
 
 class MapFromJSON: Map {
-    var errors = [ErrorType]()
+    var errors = [Error]()
     
-    private let includedData: [[String : AnyObject]]
-    private let resourceData: [String : AnyObject]
+    fileprivate let includedData: [[String : Any]]
+    fileprivate let resourceData: [String : Any]
 
-    private lazy var attributes: [String : AnyObject] = {
-        if let attributes = self.resourceData["attributes"] as? [String : AnyObject] {
+    fileprivate lazy var attributes: [String : Any] = {
+        if let attributes = self.resourceData["attributes"] as? [String : Any] {
             return attributes
         }
 
-        return [String : AnyObject]()
+        return [String : Any]()
     }()
 
-    private lazy var relationships: [RelationshipJSONObject]? = {
-        if let relationships = self.resourceData["relationships"] as? [String : AnyObject] {
+    fileprivate lazy var relationships: [RelationshipJSONObject]? = {
+        if let relationships = self.resourceData["relationships"] as? [String : Any] {
             return RelationshipJSONObject.fromJSON(relationships)
         }
 
         return nil
     }()
     
-    private(set) var currentKey: String!
+    fileprivate(set) var currentKey: String!
 
     init(
-        resourceData: [String : AnyObject],
-        includedData: [[String : AnyObject ]],
+        resourceData: [String : Any],
+        includedData: [[String : Any]],
         mappableObject: Mappable
     ) {
         self.resourceData = resourceData
@@ -52,28 +52,28 @@ class MapFromJSON: Map {
         
         guard let
             jsonId = self.resourceData["id"] as? String,
-            id = Int(jsonId)
+            let id = Int(jsonId)
         else {
             self.errors.append(MappingError(
                 description: "Missing id",
-                data:  self.resourceData)
+                data:  self.resourceData as AnyObject) as Error
             )
             return
         }
         
         mappableObject.id = id
 
-        if let meta = resourceData["meta"] as? [String : AnyObject] {
+        if let meta = resourceData["meta"] as? [String : Any] {
             mappableObject.meta = meta
         }
 
 
-        if let links = resourceData["links"] as? [String : AnyObject] {
+        if let links = resourceData["links"] as? [String : Any] {
             mappableObject.links = links
         }
     }
 
-    convenience init(resourceData: [String : AnyObject], mappableObject: Mappable) {
+    convenience init(resourceData: [String : Any], mappableObject: Mappable) {
         self.init(
             resourceData: resourceData,
             includedData: [[String : AnyObject ]](),
@@ -139,16 +139,16 @@ class MapFromJSON: Map {
         return relationshipObjects
     }
 
-    private func relationshipValueCommon<T: Mappable>(relationship: RelationshipJSONObject) -> T? {
+    private func relationshipValueCommon<T: Mappable>(_ relationship: RelationshipJSONObject) -> T? {
 
         let relationshipObject = T()
 
         for includeDataIt in self.includedData {
             guard let
                 dataId = includeDataIt["id"] as? String,
-                id = Int(dataId),
-                resourceType = includeDataIt["type"] as? String
-                where id == relationship.id && resourceType == relationship.resourceType
+                let id = Int(dataId),
+                let resourceType = includeDataIt["type"] as? String
+                , id == relationship.id && resourceType == relationship.resourceType
             else { continue }
 
             let map = MapFromJSON(
@@ -167,13 +167,13 @@ class MapFromJSON: Map {
 
         guard let
             includedDataRelationship = self.resourceData["relationships"]
-                as? [String : AnyObject],
-            includedObjectJSON = includedDataRelationship[self.currentKey] as? [String : AnyObject],
-            includedObjectData = includedObjectJSON["data"] as? [String : AnyObject],
-            includedStringId = includedObjectData["id"] as? String,
-            includedResourceType = includedObjectData["type"] as? String,
-            includedId = Int(includedStringId)
-            where includedResourceType == relationshipObject.dynamicType.resource
+                as? [String : Any],
+            let includedObjectJSON = includedDataRelationship[self.currentKey] as? [String : Any],
+            let includedObjectData = includedObjectJSON["data"] as? [String : Any],
+            let includedStringId = includedObjectData["id"] as? String,
+            let includedResourceType = includedObjectData["type"] as? String,
+            let includedId = Int(includedStringId)
+            , includedResourceType == type(of: relationshipObject).resource
         else { return nil }
 
         relationshipObject.id = includedId
