@@ -29,7 +29,7 @@ internal struct DataObject: JSONableType {
     
     init(mappableObject: Mappable) {
         self.id = String(mappableObject.id!)
-        self.type = type(of: mappableObject).resource
+        self.type = Swift.type(of: mappableObject).resource
     }
 
     func toJSON() -> [String : Any] {

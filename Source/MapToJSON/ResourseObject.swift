@@ -25,7 +25,7 @@ struct ResourceObject: JSONableType {
     
     init(mappableObject: Mappable, attributes: [String : Any]) {
         self.id = String(mappableObject.id!)
-        self.type = type(of: mappableObject).resource
+        self.type = Swift.type(of: mappableObject).resource
         self.attributes = attributes
     }
     
