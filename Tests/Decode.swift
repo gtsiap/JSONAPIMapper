@@ -34,7 +34,7 @@ class Decode: BaseTestCase {
         XCTAssertEqual(posts.count, 1)
         XCTAssertEqual(post.title, "JSON API paints my bikeshed!")
         XCTAssertNotNil(post.author)
-        XCTAssertEqual(post.id, 1)
+        XCTAssertEqual(post.id, "1")
 
         XCTAssertNotNil(post.info)
 
@@ -63,11 +63,11 @@ class Decode: BaseTestCase {
         XCTAssertNotNil(author?.twitter)
         XCTAssertEqual(author?.twitter, "dgeb")
 
-        XCTAssertEqual(author?.id, 9)
+        XCTAssertEqual(author?.id, "9")
 
         XCTAssertNotNil(author?.hobby)
         XCTAssertNotNil(author?.hobby?.id)
-        XCTAssertEqual(author?.hobby?.id, 1)
+        XCTAssertEqual(author?.hobby?.id, "1")
     }
 
     func test3Comments() {
@@ -76,10 +76,10 @@ class Decode: BaseTestCase {
 
         XCTAssertNotNil(comments?[0].body)
         XCTAssertEqual(comments?[0].body, "First!")
-        XCTAssertEqual(comments?[0].id, 5)
+        XCTAssertEqual(comments?[0].id, "5")
 
         XCTAssertNotNil(comments?[1].body)
         XCTAssertEqual(comments?[1].body, "I like XML better")
-        XCTAssertEqual(comments?[1].id, 12)
+        XCTAssertEqual(comments?[1].id, "12")
     }
 }

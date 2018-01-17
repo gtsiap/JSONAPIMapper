@@ -50,10 +50,7 @@ class MapFromJSON: Map {
         self.resourceData = resourceData
         self.includedData = includedData
         
-        guard let
-            jsonId = self.resourceData["id"] as? String,
-            let id = Int(jsonId)
-        else {
+        guard let id = self.resourceData["id"] as? String else {
             self.errors.append(MappingError(
                 description: "Missing id",
                 data:  self.resourceData as AnyObject) as Error
@@ -170,10 +167,9 @@ class MapFromJSON: Map {
                 as? [String : Any],
             let includedObjectJSON = includedDataRelationship[self.currentKey] as? [String : Any],
             let includedObjectData = includedObjectJSON["data"] as? [String : Any],
-            let includedStringId = includedObjectData["id"] as? String,
+            let includedId = includedObjectData["id"] as? String,
             let includedResourceType = includedObjectData["type"] as? String,
-            let includedId = Int(includedStringId)
-            , includedResourceType == type(of: relationshipObject).resource
+            includedResourceType == type(of: relationshipObject).resource
         else { return nil }
 
         relationshipObject.id = includedId

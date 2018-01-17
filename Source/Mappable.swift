@@ -22,7 +22,7 @@ public protocol Mappable: class {
     init()
     func map(_ map: Map)
 
-    var id: Int? { get set }
+    var id: String? { get set }
     var meta: [String : Any]? { get set }
     var links: [String : Any]? { get set }
 

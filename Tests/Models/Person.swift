@@ -22,7 +22,7 @@ import JSONAPIMapper
 
 final class Person {
 
-    var id: Int?
+    var id: String?
     var meta: [String : Any]?
     var links: [String : Any]?
     var firstName: String?
