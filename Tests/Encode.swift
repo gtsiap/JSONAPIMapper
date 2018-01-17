@@ -29,13 +29,13 @@ class Encode: BaseTestCase {
         post.title = "Some title"
 
         let author = Person()
-        author.id = 9
+        author.id = "9"
 
         let comment1 = Comment()
-        comment1.id = 1
+        comment1.id = "1"
 
         let comment2 = Comment()
-        comment2.id = 2
+        comment2.id = "2"
 
         post.author = author
         post.comments = [comment1, comment2]
@@ -44,7 +44,7 @@ class Encode: BaseTestCase {
         XCTAssertEqual(retrieveJSONObject("create_resource"), createResourceJSONObject as NSDictionary)
 
         post.title = "To TDD or Not"
-        post.id = 1
+        post.id = "1"
 
 
         let updateResourceJSONObject = try! Mapper<Post>().updateResourceDictionary(post)

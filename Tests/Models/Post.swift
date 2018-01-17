@@ -27,7 +27,7 @@ final class Info: ObjectMappable {
 
 final class Post {
 
-    var id: Int?
+    var id: String?
     var meta: [String : Any]?
     var links: [String : Any]?
     var title: String?

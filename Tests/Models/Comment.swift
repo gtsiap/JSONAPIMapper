@@ -22,7 +22,7 @@ import JSONAPIMapper
 
 final class Comment {
 
-    var id: Int?
+    var id: String?
     var body: String?
     var meta: [String : Any]?
     var links: [String : Any]?
