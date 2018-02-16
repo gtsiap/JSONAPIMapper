@@ -21,9 +21,9 @@
 struct RelationshipJSONObject {
     let resourceType: String
     let jsonField: String
-    let id: Int
+    let id: String
 
-    private init(resourceType: String, jsonField: String, id: Int) {
+    private init(resourceType: String, jsonField: String, id: String) {
         self.resourceType = resourceType
         self.id = id
         self.jsonField = jsonField
@@ -42,8 +42,7 @@ struct RelationshipJSONObject {
             if
                 let jsonData = jsonObject["data"] as? [String : Any],
                 let type = jsonData["type"] as? String,
-                let jsonId = jsonData["id"] as? String,
-                let id = Int(jsonId)
+                let id = jsonData["id"] as? String
             {
                 let object = RelationshipJSONObject(
                     resourceType: type,
@@ -57,7 +56,7 @@ struct RelationshipJSONObject {
                     let object = RelationshipJSONObject(
                         resourceType: dataItem["type"] as! String,
                         jsonField: it,
-                        id: Int(dataItem["id"] as! String)!
+                        id: dataItem["id"] as! String
                     )
 
                     objects.append(object)

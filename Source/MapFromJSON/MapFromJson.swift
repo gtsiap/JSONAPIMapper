@@ -141,11 +141,10 @@ class MapFromJSON: Map {
         let relationshipObject = T()
 
         for includeDataIt in self.includedData {
-            guard let
-                dataId = includeDataIt["id"] as? String,
-                let id = Int(dataId),
-                let resourceType = includeDataIt["type"] as? String
-                , id == relationship.id && resourceType == relationship.resourceType
+            guard
+                let id = includeDataIt["id"] as? String,
+                let resourceType = includeDataIt["type"] as? String,
+                id == relationship.id && resourceType == relationship.resourceType
             else { continue }
 
             let map = MapFromJSON(
